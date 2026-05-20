@@ -1,17 +1,24 @@
-import { ClerkProvider } from '@clerk/nextjs'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
 
-export const metadata = {
-  title: 'ASCET Interview Hub',
-  description: 'Practice interviews with AI',
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'Uber Next Clone',
+  description: 'Uber clone with Next.js',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body>{children}</body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        {children}
+      </body>
+    </html>
   )
 }
